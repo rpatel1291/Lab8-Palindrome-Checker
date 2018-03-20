@@ -1,0 +1,27 @@
+{
+  "name": "cs-546-lab-8",
+  "version": "1.0.0",
+  "description": "CS546: Lab 8 - Palindrome Checker",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpatel1291/Lab8-Palindrome-Checker.git"
+  },
+  "author": {
+    "name": "Ravi Patel",
+    "cwid": "10432313"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rpatel1291/Lab8-Palindrome-Checker/issues"
+  },
+  "homepage": "https://github.com/rpatel1291/Lab8-Palindrome-Checker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
