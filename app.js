@@ -1,21 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const app = express();
-const static = express.static(__dirname + '/public');
+const handlebars = require('express-handlebars');
+const path = require('path');
 
-const configRoutes = require('./routes');
-const exphbs = require('express-handlebars');
+let routes = require('./routes');
 
-app.use('/public', static);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+let app = express();
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', handlebars({ defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts/' }));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
-configRoutes(app);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', routes);
 
 app.listen(3000, () => {
-    console.log("We've now got a server!");
     console.log("Your routes will be running on http://localhost:3000");
 });
+
+module.exports = app;
